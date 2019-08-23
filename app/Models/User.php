@@ -29,5 +29,10 @@ class User extends Authenticatable implements MustVerifyEmailContract
 //        return Carbon::parse($date)->diffForHumans();
 //    }
 
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
+
 
 }
