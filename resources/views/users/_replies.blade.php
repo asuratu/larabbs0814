@@ -23,6 +23,9 @@
 @endif
 
 {{-- 分页 --}}
-<div class="mt-4 pt-1">
-    {!! $replies->appends(Request::except('page'))->render() !!}
-</div>
+{{ $replies->appends(['tab' => 'replies'])->links() }}
+
+{{-- 分页 --}}
+{{--<div class="mt-4 pt-1">--}}
+{{--    {!! $replies->appends(Request::except('page'))->render() !!}--}}
+{{--</div>--}}
