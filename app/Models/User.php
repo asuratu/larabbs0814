@@ -65,4 +65,19 @@ class User extends Authenticatable implements MustVerifyEmailContract
     }
 
 
+    /**
+     * $user->notifications()->get() // 获取所有的通知
+    $user->readNotifications()->get() // 获取已读
+    $user->unreadNotifications()->get() // 获取未读
+    $user->unreadNotifications->markAsRead() // 将未读标记为已读
+    $user->readNotifications->markAsUnread() // 将已读标记为未读
+     */
+    public function markAsRead()
+    {
+        $this->notification_count = 0;
+        $this->save();
+        $this->unreadNotifications->markAsRead();
+    }
+
+
 }
